@@ -235,11 +235,11 @@ function getCarInfoById(id) {
   
 
   const lastcar = info.find((item, index) => {
-    return index ===  49 
+    return index ===  0 
   })
   return `The car is a ${lastcar.car_make} ${lastcar.car_model}`
   }
-}
+
 
 /**
  * ### Challenge `sortCarInventory`
@@ -250,8 +250,23 @@ function getCarInfoById(id) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 function sortCarInventory(/* code here */) {
-  /* code here */
+  var info = require("./data/inventory.js");
+  const inventory = info.find((item, index) => {
+  })
+  function compare( a, b ) {
+      if ( a.car_model < b.car_model ){
+        return -1;
+      }
+      if ( a.car_model > b.car_model ){
+        return 1;
+      }
+      return 0;
+    }
+  info.sort(compare)
+
+  return info
 }
+console.log(sortCarInventory);
 
 /**
  * ### Challenge `getModelYears`
@@ -263,8 +278,15 @@ function sortCarInventory(/* code here */) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(/* code here */) {
-  /* code here */
+  var info = require("./data/inventory.js");
+ 
+  var caryear = [];
+
+
+
+return caryear
 }
+
 
 /**
  * ### Challenge `getOlderCars`
