@@ -249,6 +249,8 @@ function getCarInfoById(id) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
+
+const inventory = require("./data/inventory.js");
 function sortCarInventory(/* code here */) {
   var info = require("./data/inventory.js");
   const inventory = info.find((item, index) => {
@@ -277,21 +279,17 @@ console.log(sortCarInventory);
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  var info = require("./data/inventory.js");
-  const inventory = info.find((item, index) => {
-  })
-  var caryear = [];
 
-  for(let i=0; i===inventory.car_year;i++) {
-    var string = inventory[i]
+function getModelYears(inventory) {
+  
+  let caryears = [];
+
+  for(let i=0; i < inventory.length; i++) {
+    caryears.push(inventory[i].car_year);
     
-    var caryears = string;
-
-    caryear.push(caryears)
   }
 
-return caryear
+return caryears
 }
 console.log(getModelYears)
 
@@ -308,11 +306,19 @@ console.log(getModelYears)
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  var info = require("./data/inventory.js");
-  const inventory = info.find((item, index) => {
-  })
-}
+function getOlderCars(inventory, maxyear) {
+  const cars = [];
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_year <= maxyear){
+      cars.push(inventory[i]);
+    } 
+  }
+  return cars;
+  }
+
+
+console.log(getOlderCars)
+
 
 /**
  * ### Challenge `getGermanCars`
@@ -325,11 +331,28 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  var info = require("./data/inventory.js");
-  const inventory = info.find((item, index) => {
-  })
-}
+function getGermanCars(inventory) {
+
+  var cars = [];
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_make === `Audi` ){
+      cars.push(inventory[i]);
+  
+     
+    }  else if (inventory[i].car_make === `Mercedes-Benz`) {
+      cars.push(inventory[i]);
+    }
+    else if (inventory[i].car_make === `Volkswagen`) {
+      cars.push(inventory[i]);
+    }
+    else if (inventory[i].car_make === `BMW`) {
+      cars.push(inventory[i]);
+    }
+  }
+  return cars;
+  }
+console.log(getGermanCars)
+
 
 /**
  * ### Challenge refactor to arrow functions
@@ -371,10 +394,9 @@ console.log(argTimesTwo(4))
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
-}
+function carMaker() {
 
+}
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
