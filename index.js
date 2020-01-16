@@ -279,13 +279,21 @@ console.log(sortCarInventory);
 */
 function getModelYears(/* code here */) {
   var info = require("./data/inventory.js");
- 
+  const inventory = info.find((item, index) => {
+  })
   var caryear = [];
 
+  for(let i=0; i===inventory.car_year;i++) {
+    var string = inventory[i]
+    
+    var caryears = string;
 
+    caryear.push(caryears)
+  }
 
 return caryear
 }
+console.log(getModelYears)
 
 
 /**
@@ -301,7 +309,9 @@ return caryear
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(/* code here */) {
-  /* code here */
+  var info = require("./data/inventory.js");
+  const inventory = info.find((item, index) => {
+  })
 }
 
 /**
@@ -316,7 +326,9 @@ function getOlderCars(/* code here */) {
  * in the same order as they appear in the original inventory.
 */
 function getGermanCars(/* code here */) {
-  /* code here */
+  var info = require("./data/inventory.js");
+  const inventory = info.find((item, index) => {
+  })
 }
 
 /**
@@ -337,9 +349,14 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a,b) => a + b;
+const addFive = (num) => num + 5;
+const argTimesTwo = (num) => num * 2;
+
+
+console.log(sum(1,4));
+console.log(addFive(5));
+console.log(argTimesTwo(4))
 
 /**
  * ### Challenge `carMaker`
